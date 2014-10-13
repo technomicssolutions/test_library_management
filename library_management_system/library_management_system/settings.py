@@ -1,7 +1,9 @@
 # Django settings for library_management_system project.
-
+import os
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
+fillpath = lambda x : os.path.join(os.path.dirname(__file__),x)
+print fillpath("templates")
 
 ADMINS = (
     # ('Your Name', 'your_email@example.com'),
@@ -108,10 +110,13 @@ ROOT_URLCONF = 'library_management_system.urls'
 WSGI_APPLICATION = 'library_management_system.wsgi.application'
 
 TEMPLATE_DIRS = (
+    fillpath("templates")
+)
+        
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-)
+
 
 INSTALLED_APPS = (
     'django.contrib.auth',
