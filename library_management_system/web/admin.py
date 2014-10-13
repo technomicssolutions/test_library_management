@@ -6,3 +6,4 @@ admin.site.register(Student)
 admin.site.register(BookCategory)
 admin.site.register(Book)
 admin.site.register(Issue)
+
