@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div align="Center"><h3><ins>Book Category</ins></h3></div>
+
+    {% if latest_bookcategories_list %}
+        <center>
+            <table style="width:100%">
+                <tr></tr>
+                <tr></tr>
+                <tr></tr>
+                <tr></tr>
+                <tr>
+
+                    <th>Book Categories</th>
+
+                </tr>
+            {% for bookcategory in latest_bookcategories_list %}
+                <tr>
+                	
+                </tr>
+            {% endfor %}
+            </table>
+        </center>
+        
+    {% endif %}
+{% endblock content %}

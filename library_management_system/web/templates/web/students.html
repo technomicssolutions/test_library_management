@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div align="Center"><h3><ins>STUDENTS</ins></h3></div>
+
+	{% if latest_student_list %}
+        <center>
+            <table style="width:100%">
+            	<tr></tr>
+            	<tr></tr>
+            	<tr></tr>
+            	<tr></tr>
+                <tr>
+                    <th>StudentId</th>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Address</th>
+                    <th>Gender</th>
+                    <th>Books in hand</th>
+                    <th>Fine</th>
+                </tr>
+            {% for Student in latest_student_list %}
+                <tr>
+                	<td>{{Student.student_id}}</td>
+                	<td>{{Student.student_name}}</td>
+                	<td>{{Student.age}}</td>
+                	<td>{{Student.address}}</td>
+                	<td>{{Student.gender}}</td>
+                    <td>{{Student.books_in_hand}}</td>
+                    <td>{{Student.fine}}</td>
+                    <td><a href="{% url 'edit_student'  %}">Edit</a></td>
+                    <td><a href="{% url 'delete_student' %}">Delete</a></td>
+				</tr>
+            {% endfor %}
+            </table>
+            <td><a href="{% url 'students'  %}">Add Student</a></td>
+        </center>
+
+    {% endif %}
+{% endblock content %}
