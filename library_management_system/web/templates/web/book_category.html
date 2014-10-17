@@ -1,11 +1,13 @@
+<!DOCTYPE html>
+<html>
 {% extends 'base.html' %}
 {% block content %}
 
-<div align="Center"><h3><ins>Book Category</ins></h3></div>
+<div align="Center"><h3><ins><caption>Book Category</caption></ins></h3></div>
 
     {% if latest_bookcategories_list %}
         <center>
-            <table style="width:100%">
+            <table background-color: #f1f1c1; border="1px solid black" border-collapse: "collapse"  style="width:100%">
                 <tr></tr>
                 <tr></tr>
                 <tr></tr>
@@ -15,13 +17,37 @@
                     <th>Book Categories</th>
 
                 </tr>
+
+
             {% for bookcategory in latest_bookcategories_list %}
+                <tr></tr>
+
                 <tr>
-                	
+
+                    <td><a href="">{{bookcategory.book_category}}</a></td>
+                    <td><a href="{% url 'edit_bookcategory' bookcategory.id %}">Edit</a></td>
+                    <td><a href="{% url 'delete_bookcategory' bookcategory.id %}">Delete</a></td>
+                    
+                    
                 </tr>
             {% endfor %}
             </table>
+            &nbsp
+            &nbsp
+            &nbsp
+
+            
         </center>
+        <center>
+
+            <form method="post" action="{% url 'create_bookcategory'  %}">{% csrf_token %}
+                <input type='submit' value='Add Bookcategory'/>
+            </form>
+        </center>
+       
+    {% else %}
+        <p>Books not exist.</p>
         
     {% endif %}
 {% endblock content %}
+</html>

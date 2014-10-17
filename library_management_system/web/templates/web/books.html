@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div align = "center"><h3><ins><caption>Books</caption></ins></h3></div>
+
+    {% if latest_book_list %}
+
+        <center>
+
+            <table background-color: #f1f1c1; border="1px solid black" border-collapse: "collapse"  style="width:100%">
+
+                <tr></tr>
+                <tr></tr>
+                <tr></tr>
+                <tr></tr>
+                <tr>
+
+                    <th>BookId</th>
+                    <th>Book Name</th>
+                    <th>Book Category</th>
+                    <th>Issue Date</th>
+                    <th>Return Date</th>
+
+                </tr>
+
+            {% for book in latest_book_list %}
+                <tr>
+
+                    <td>{{book.book_id}}</td>
+                    <td>{{book.book_name}}</td>
+                    <td>{{book.book_category}}</td>
+                    <td>{{book.issue_date}}</td>
+                    <td>{{book.return_date}}</td>
+                    <td><a href="{% url 'edit_book'  book.id  %}">Edit</a></td>
+                    <td><a href="{% url 'delete_book'  book.id  %}">Delete</a></td>
+                    
+                </tr>
+            
+            {% endfor %}
+
+
+            </table>
+
+            
+        </center>
+        <center>
+
+            <form method="post" action="{% url 'create_book'  %}">{% csrf_token %}
+                <input type='submit' value='Add Book'/>
+            </form>
+        </center>
+       
+    {% else %}
+        <p>Books not exist.</p>
+
+    {% endif %}
+
+{% endblock content %}
+

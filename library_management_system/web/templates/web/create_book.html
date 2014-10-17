@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+<div align="Center"><h3><ins><caption>Add Book</caption></ins></h3></div>
+<center>
+<table>
+
+	<form method="post" action="{% url 'create_book' %}">
+   		{% csrf_token %}
+    	{{ form.as_p }}
+    	<tr>Book Category : <select name="book_category">
+        <option value="">Select</option>
+        {% for  category in  book_categories %}
+            <option value="{{category.id}}">{{category.book_category}}</option>
+        {% endfor %}
+        </select>
+        </tr>
+        <tr>
+        	<td>
+   		 		<input type="submit" value="Submit" />
+   		 	</td>
+   		</tr>
+	</form>
+
+	
+</table>	
+</center>
+</div>
+{% endblock content %}

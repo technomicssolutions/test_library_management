@@ -1,3 +1,23 @@
 {% extends 'base.html' %}
+{% block content %}
+<div align="Center"><h3><ins><caption>Add Student</caption></ins></h3></div>
+<center>
+<table>
+	<form method="post" action="{% url 'create_student' %}">
+		<tr></tr>
+		<tr></tr>
+		<tr></tr>
+   		{% csrf_token %}
+    	{{ form.as_p }}
+   
 
+        <tr>
+			<input type="submit" value="Submit" />
+   		</tr>
+	</form>
+
+</div>	
+</table>	
+</center>
+{% endblock content %}
 
